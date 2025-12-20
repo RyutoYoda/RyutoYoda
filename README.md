@@ -9,7 +9,6 @@
     <img height="20" src="https://qiita-badge.apiapi.app/s/RyutoYoda/contributions.svg" alt="Qiita contributions" />
   </a>
 </p>
----
 ## Tech Stack
 
 ### Data / Analytics
@@ -22,7 +21,6 @@
 ### Cloud
 [![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazonaws&logoColor=white)](https://aws.amazon.com/)
 [![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?logo=googlecloud&logoColor=white)](https://cloud.google.com/)
----
 
 ## Stats
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RyutoYoda&theme=gruvbox)
