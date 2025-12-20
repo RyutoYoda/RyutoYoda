@@ -22,7 +22,4 @@
 ![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=RyutoYoda&theme=gruvbox)
 ![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=RyutoYoda&theme=gruvbox&utcOffset=9)
 
----
 
-## Trophy
-![trophy](https://github-profile-trophy.vercel.app/?username=RyutoYoda&theme=gruvbox)
