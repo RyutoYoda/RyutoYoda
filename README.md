@@ -9,7 +9,6 @@
     <img height="20" src="https://qiita-badge.apiapi.app/s/RyutoYoda/contributions.svg" alt="Qiita contributions" />
   </a>
 </p>
-
 ---
 ## Tech Stack
 
