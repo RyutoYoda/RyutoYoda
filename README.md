@@ -14,7 +14,7 @@
 
 ## Tech Stack
 
-### Data / Analytics
+### Data / AI / Analytics 
 <p align="left">
   <a href="https://www.getdbt.com/">
     <img src="https://img.shields.io/badge/dbt-FF694B?style=flat&logo=dbt&logoColor=white" />
