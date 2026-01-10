@@ -47,11 +47,10 @@ mainly focusing on analytics engineering and cloud-native architectures.
 </p>
 
 ---
-
 ## 📊 Stats
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RyutoYoda&theme=gruvbox)
-![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RyutoYoda&theme=gruvbox)
-![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RyutoYoda&theme=gruvbox)
-![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=RyutoYoda&theme=gruvbox)
-![](http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=RyutoYoda&theme=gruvbox&utcOffset=9)
+![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RyutoYoda&theme=gruvbox)
+![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RyutoYoda&theme=gruvbox)
+![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RyutoYoda&theme=gruvbox)
+![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RyutoYoda&theme=gruvbox)
+![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=RyutoYoda&theme=gruvbox&utcOffset=9)
