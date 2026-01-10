@@ -9,7 +9,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - Designing & developing data platforms
 - Analytics engineering with dbt
 - Cloud data warehouses & lakehouse
-
+- AI-driven data analytics platforms
 ---
 
 ## 🚀 Activities
