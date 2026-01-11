@@ -45,12 +45,3 @@ mainly focusing on analytics engineering and cloud-native architectures.
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" />
 </p>
-
----
-## 📊 Stats
-
-![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=RyutoYoda&theme=gruvbox)
-![](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=RyutoYoda&theme=gruvbox)
-![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=RyutoYoda&theme=gruvbox)
-![](https://github-profile-summary-cards.vercel.app/api/cards/stats?username=RyutoYoda&theme=gruvbox)
-![](https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=RyutoYoda&theme=gruvbox&utcOffset=9)
