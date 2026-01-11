@@ -3,7 +3,7 @@ on:
   # 毎日0時（UTC）に自動実行
   schedule:
     - cron: "0 0 * * *"
-  # 手動実行も可能にする
+  # 手動実行も可能
   workflow_dispatch:
   # mainブランチへのpushでも実行
   push:
