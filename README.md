@@ -12,7 +12,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - AI-driven data analytics platforms
 ---
 
-## 🚀 Activities
+## Activities
 
 <p align="left">
   <a href="https://github.com/RyutoYoda">
@@ -28,7 +28,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 ### Data / AI / Analytics
 <p align="left">
