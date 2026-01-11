@@ -45,3 +45,12 @@ mainly focusing on analytics engineering and cloud-native architectures.
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" />
 </p>
+
+## Status
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs?username=RyutoYoda&show_icons=true&locale=ja&layout=compact&theme=chartreuse-dark" alt="Top Languages" />
+
+<img src="https://github-readme-stats.vercel.app/api?username=RyutoYoda&show_icons=true&locale=ja&theme=chartreuse-dark" alt="GitHub Stats" width="410" />
+
+<img src="https://github-profile-trophy.vercel.app/?username=RyutoYoda&theme=juicyfresh&no-bg=true" />
+
