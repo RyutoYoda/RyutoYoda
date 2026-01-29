@@ -1,7 +1,6 @@
 ## 👋 Hi, I'm Ryuto Yoda
 
 **Data Engineer based in Japan**  
-Working at **CyberAgent**
 
 I build **scalable data analytics platforms** and **modern data pipelines**,  
 mainly focusing on analytics engineering and cloud-native architectures.
