@@ -36,6 +36,8 @@ mainly focusing on analytics engineering and cloud-native architectures.
   <img src="https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white" />
   <img src="https://img.shields.io/badge/Apache%20Iceberg-3D7EBB?style=flat&logo=apache&logoColor=white" />
   <img src="https://img.shields.io/badge/Dataiku-2AB1AC?style=flat&logo=dataiku&logoColor=white" />
+  <img src="https://img.shields.io/badge/Claude-191919?style=flat&logo=anthropic&logoColor=white" />
+  <img src="https://img.shields.io/badge/OpenAI-10A37F?style=flat&logo=openai&logoColor=white" />
 </p>
 
 ### Cloud / Infrastructure
