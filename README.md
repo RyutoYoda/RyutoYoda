@@ -50,6 +50,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 
 ## Kaggle
 
-🏆 Competition Certification
+[![Kaggle](https://road-to-kaggle-grandmaster.vercel.app/api/simple/ryutoyoda)](https://www.kaggle.com/ryutoyoda)
 
-- [NVIDIA Nemotron Model Reasoning Challenge](https://www.kaggle.com/certification/competitions/ryutoyoda/nvidia-nemotron-model-reasoning-challenge)
+🏆 Competition Certification
+- NVIDIA Nemotron Model Reasoning Challenge
