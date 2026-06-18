@@ -23,6 +23,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
   <a href="https://qiita.com/RyutoYoda">
     <img height="20" src="https://qiita-badge.apiapi.app/s/RyutoYoda/contributions.svg" alt="Qiita contributions" />
   </a>
+  
 </p>
 
 ---
@@ -46,3 +47,9 @@ mainly focusing on analytics engineering and cloud-native architectures.
   <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat&logo=googlecloud&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" />
 </p>
+
+## Kaggle
+
+🏆 Competition Certification
+
+- [NVIDIA Nemotron Model Reasoning Challenge](https://www.kaggle.com/certification/competitions/ryutoyoda/nvidia-nemotron-model-reasoning-challenge)
