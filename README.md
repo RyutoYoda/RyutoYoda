@@ -54,3 +54,4 @@ mainly focusing on analytics engineering and cloud-native architectures.
 
 🏆 Competition Certification
 - NVIDIA Nemotron Model Reasoning Challenge
+- Orbit Wars
