@@ -35,12 +35,12 @@ jobs:
         run: |
           COMMITS=$(cat /tmp/commits.txt)
           echo "Total contributions: $COMMITS"
-          python scripts/generate_tree.py --commits "$COMMITS" --output minecraft_tree.png
+          python scripts/generate_tree.py --commits "$COMMITS" --output contribution_tree.png
 
       - name: Commit & push
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add minecraft_tree.png
-          git diff --staged --quiet || git commit -m "🌳 Update Minecraft tree ($(cat /tmp/commits.txt) contributions)"
+          git add contribution_tree.png
+          git diff --staged --quiet || git commit -m "🌳 Update Contribution Tree ($(cat /tmp/commits.txt) contributions)"
           git push
