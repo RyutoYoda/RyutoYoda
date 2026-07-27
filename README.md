@@ -1,8 +1,6 @@
 ## 👋 Hi, I'm Ryuto Yoda
 
-<table>
-<tr>
-<td valign="top">
+<img align="right" src="contribution_tree.png" alt="Contribution Tree" width="210" />
 
 **Data Engineer based in Japan**
 
@@ -14,16 +12,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - Cloud data warehouses & lakehouse
 - AI-driven data analytics platforms
 
-</td>
-<td valign="top" align="center" width="220">
-
-<img src="contribution_tree.png" alt="Contribution Tree" width="200" />
-<br/>
-<sub>🌳 Contribution Tree — updated daily</sub>
-
-</td>
-</tr>
-</table>
+<sub>🌳 Contribution Tree — grows with my GitHub contributions, updated daily</sub>
 
 ---
 
