@@ -1,6 +1,10 @@
 ## 👋 Hi, I'm Ryuto Yoda
 
-**Data Engineer based in Japan**  
+<table>
+<tr>
+<td valign="top">
+
+**Data Engineer based in Japan**
 
 I build **scalable data analytics platforms** and **modern data pipelines**,  
 mainly focusing on analytics engineering and cloud-native architectures.
@@ -10,11 +14,16 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - Cloud data warehouses & lakehouse
 - AI-driven data analytics platforms
 
-<p align="left">
-  <img src="contribution_tree.png" alt="Contribution Tree" width="180" />
-  <br/>
-  <sub>🌳 Contribution Tree — grows with my GitHub contributions, updated daily</sub>
-</p>
+</td>
+<td valign="top" align="center" width="220">
+
+<img src="contribution_tree.png" alt="Contribution Tree" width="200" />
+<br/>
+<sub>🌳 Contribution Tree — updated daily</sub>
+
+</td>
+</tr>
+</table>
 
 ---
 
