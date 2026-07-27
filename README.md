@@ -18,7 +18,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 <td width="35%" align="center" valign="middle">
 
 <img src="contribution_tree.png" alt="Contribution Tree" width="200" />
-<br/><sub>🌳 Contribution Tree — updated daily</sub>
+<br/><sub>🌳 Contribution Tree </sub>
 
 </td>
 </tr>
