@@ -10,7 +10,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - Cloud data warehouses & lakehouse
 - AI-driven data analytics platforms
 
-<p align="center">
+<p align="left">
   <img src="contribution_tree.png" alt="Contribution Tree" width="180" />
   <br/>
   <sub>🌳 Contribution Tree — grows with my GitHub contributions, updated daily</sub>
