@@ -2,19 +2,20 @@
 """
 Contribution Tree — 3D isometric block renderer.
 Tree size scales with total GitHub contributions.
+Irregular branches and fuzzy leaf clusters for a realistic look.
 """
 import argparse
+import random
 from PIL import Image, ImageDraw
 
 # --- Isometric projection constants ---
-TW = 48   # top-face diamond width (px)
-TH = 24   # top-face diamond height (px)
-SH = 26   # side-face height (px)
+TW = 48
+TH = 24
+SH = 26
 
-# Block palettes: [top_face_rgb, right_face_rgb (x+1 side), left_face_rgb (z+1 side)]
 PALETTE = {
     'leaf':  [(106, 185,  54), ( 72, 130,  36), ( 88, 158,  44)],
-    'leafD': [( 88, 158,  44), ( 58, 105,  28), ( 72, 128,  34)],
+    'leafD': [( 82, 150,  40), ( 54,  98,  24), ( 68, 120,  30)],
     'wood':  [(162, 130,  73), ( 98,  74,  40), (128,  98,  54)],
     'grass': [(106, 185,  54), (108,  78,  42), (130,  96,  54)],
     'dirt':  [(130,  96,  54), (108,  78,  42), (118,  86,  46)],
@@ -22,7 +23,6 @@ PALETTE = {
 
 
 def iso(x, y, z, ox=0, oy=0):
-    """3D block coords → 2D screen coords."""
     sx = ox + (x - z) * (TW // 2)
     sy = oy + (x + z) * (TH // 2) - y * SH
     return int(sx), int(sy)
@@ -40,62 +40,88 @@ def draw_block(draw, bx, by, bz, btype, ox, oy):
     top_rgb, right_rgb, left_rgb = PALETTE[btype]
 
     def face(pts, rgb):
-        rgba = rgb + (255,)
-        draw.polygon(pts, fill=rgba)
+        draw.polygon(pts, fill=rgb + (255,))
         dark = tuple(max(0, c - 55) for c in rgb) + (230,)
         draw.polygon(pts, outline=dark)
 
-    # Draw order: right → left → top (top always visible)
     face([v[1,0,0], v[1,1,0], v[1,1,1], v[1,0,1]], right_rgb)
     face([v[0,0,1], v[0,1,1], v[1,1,1], v[1,0,1]], left_rgb)
     face([v[0,1,0], v[1,1,0], v[1,1,1], v[0,1,1]], top_rgb)
 
 
 def build_tree(commits):
-    """Return list of (bx, by, bz, block_type) for the tree."""
-    if   commits <    50: trunk_h, cr = 3, 2
-    elif commits <   200: trunk_h, cr = 4, 2
-    elif commits <   500: trunk_h, cr = 5, 3
-    elif commits <  1500: trunk_h, cr = 6, 3
-    elif commits <  3000: trunk_h, cr = 7, 4
-    else:                 trunk_h, cr = 8, 4
+    rng = random.Random(commits % 9973)
 
-    blocks = []
+    if   commits <   50: trunk_h, n_br = 5, 3
+    elif commits <  200: trunk_h, n_br = 6, 4
+    elif commits <  500: trunk_h, n_br = 7, 5
+    elif commits < 1500: trunk_h, n_br = 8, 6
+    elif commits < 3000: trunk_h, n_br = 9, 7
+    else:                trunk_h, n_br = 10, 8
 
-    # Ground platform (grass + dirt)
-    for dx in range(-cr - 1, cr + 2):
-        for dz in range(-cr - 1, cr + 2):
-            blocks.append((dx, -1, dz, 'grass'))
-            blocks.append((dx, -2, dz, 'dirt'))
+    blk = {}  # (x,y,z) -> block_type
+
+    def put(x, y, z, t, force=False):
+        if force or (x, y, z) not in blk:
+            blk[(x, y, z)] = t
+
+    # Ground (grass + dirt, large enough for wide branches)
+    for dx in range(-6, 7):
+        for dz in range(-6, 7):
+            put(dx, -1, dz, 'grass')
+            put(dx, -2, dz, 'dirt')
 
     # Trunk
     for y in range(trunk_h):
-        blocks.append((0, y, 0, 'wood'))
+        put(0, y, 0, 'wood', force=True)
 
-    # Canopy (4 layers starting 1 below trunk top)
-    y_base = trunk_h - 1
-    for layer in range(4):
-        y = y_base + layer
-        if layer == 0:   r = max(1, cr - 1)
-        elif layer <= 2: r = cr
-        else:            r = max(1, cr - 1)
+    # 8 possible branch directions (cardinal + diagonal)
+    all_dirs = [(1,0),(-1,0),(0,1),(0,-1),(1,1),(-1,1),(1,-1),(-1,-1)]
+    rng.shuffle(all_dirs)
+    branch_dirs = all_dirs[:n_br]
 
+    tips = []
+    for bdx, bdz in branch_dirs:
+        # Branch starts at a random height in the upper trunk
+        y0 = trunk_h - 3 + rng.randint(0, 3)
+        length = 2 + rng.randint(0, 2)
+        x, y, z = 0, y0, 0
+        for _ in range(length):
+            x += bdx
+            z += bdz
+            y += 1
+            put(x, y, z, 'wood', force=True)
+        tips.append((x, y, z))
+
+    # Fuzzy spherical leaf cluster at each branch tip
+    def add_cluster(cx, cy, cz, r=2):
         for dx in range(-r, r + 1):
-            for dz in range(-r, r + 1):
-                if abs(dx) == r and abs(dz) == r:  # round corners
-                    continue
-                if dx == 0 and dz == 0 and y < trunk_h:  # don't overwrite trunk
-                    continue
-                btype = 'leafD' if (abs(dx) + abs(dz)) % 3 == 0 else 'leaf'
-                blocks.append((dx, y, dz, btype))
+            for dy in range(-1, r + 2):
+                for dz in range(-r, r + 1):
+                    # Slightly elliptical: flatter vertically
+                    d2 = dx*dx + (dy - 1)*(dy - 1) * 0.75 + dz*dz
+                    if d2 > r*r + 0.5:
+                        continue
+                    # Fuzzy outer shell: ~45% of edge blocks omitted
+                    if d2 > r*r - 0.5 and rng.random() < 0.45:
+                        continue
+                    lx, ly, lz = cx + dx, cy + dy, cz + dz
+                    if blk.get((lx, ly, lz)) != 'wood':
+                        t = 'leafD' if rng.random() < 0.30 else 'leaf'
+                        put(lx, ly, lz, t)
 
-    return blocks
+    for tx, ty, tz in tips:
+        add_cluster(tx, ty, tz, r=2)
+
+    # Small cap cluster at the very top of the trunk
+    add_cluster(0, trunk_h, 0, r=1)
+
+    return [(x, y, z, t) for (x, y, z), t in blk.items()]
 
 
 def generate(commits, out='minecraft_tree.png'):
     blocks = build_tree(commits)
 
-    # Compute bounding box with a temporary origin
     ox0, oy0 = 1000, 1000
     all_pts = [
         iso(bx+dx, by+dy, bz+dz, ox0, oy0)
@@ -107,7 +133,7 @@ def generate(commits, out='minecraft_tree.png'):
     max_x = max(p[0] for p in all_pts)
     max_y = max(p[1] for p in all_pts)
 
-    pad = 24
+    pad = 28
     w = max_x - min_x + pad * 2
     h = max_y - min_y + pad * 2
     ox = ox0 - min_x + pad
@@ -116,7 +142,6 @@ def generate(commits, out='minecraft_tree.png'):
     img = Image.new('RGBA', (int(w), int(h)), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
 
-    # Painter's algorithm: back-to-front (x+z ascending), bottom-to-top (y ascending)
     sorted_blocks = sorted(blocks, key=lambda b: (b[0] + b[2], b[1]))
     for bx, by, bz, btype in sorted_blocks:
         draw_block(draw, bx, by, bz, btype, ox, oy)
