@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-3D Isometric Minecraft-style tree generator.
+Contribution Tree — 3D isometric block renderer.
 Tree size scales with total GitHub contributions.
 """
 import argparse
