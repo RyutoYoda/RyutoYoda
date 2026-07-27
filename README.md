@@ -9,6 +9,13 @@ mainly focusing on analytics engineering and cloud-native architectures.
 - Analytics engineering with dbt
 - Cloud data warehouses & lakehouse
 - AI-driven data analytics platforms
+
+<p align="center">
+  <img src="minecraft_tree.png" alt="Minecraft contribution tree" width="300" />
+  <br/>
+  <sub>🌳 This tree grows with my GitHub contributions — updated daily</sub>
+</p>
+
 ---
 
 ## Activities
