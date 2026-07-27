@@ -52,11 +52,9 @@ def draw_block(draw, bx, by, bz, btype, ox, oy):
 def build_tree(commits):
     rng = random.Random(commits % 9973)
 
-    if   commits <   50: trunk_h, n_br = 5, 3
-    elif commits <  200: trunk_h, n_br = 6, 4
-    elif commits <  500: trunk_h, n_br = 7, 5
-    elif commits < 1500: trunk_h, n_br = 8, 6
-    elif commits < 3000: trunk_h, n_br = 9, 7
+    if   commits <  200: trunk_h, n_br = 7, 5
+    elif commits <  500: trunk_h, n_br = 8, 6
+    elif commits < 1500: trunk_h, n_br = 9, 7
     else:                trunk_h, n_br = 10, 8
 
     blk = {}  # (x,y,z) -> block_type
@@ -65,15 +63,20 @@ def build_tree(commits):
         if force or (x, y, z) not in blk:
             blk[(x, y, z)] = t
 
-    # Ground (grass + dirt, large enough for wide branches)
-    for dx in range(-6, 7):
-        for dz in range(-6, 7):
+    # Ground
+    for dx in range(-7, 8):
+        for dz in range(-7, 8):
             put(dx, -1, dz, 'grass')
             put(dx, -2, dz, 'dirt')
 
-    # Trunk
+    # Thick trunk: 2×2 base tapering to 1×1 near top
+    thick_up_to = trunk_h - 3  # lower portion is 2×2
     for y in range(trunk_h):
         put(0, y, 0, 'wood', force=True)
+        if y < thick_up_to:
+            put(1, y, 0, 'wood', force=True)
+            put(0, y, 1, 'wood', force=True)
+            put(1, y, 1, 'wood', force=True)
 
     # 8 possible branch directions (cardinal + diagonal)
     all_dirs = [(1,0),(-1,0),(0,1),(0,-1),(1,1),(-1,1),(1,-1),(-1,-1)]
@@ -84,8 +87,11 @@ def build_tree(commits):
     for bdx, bdz in branch_dirs:
         # Branch starts at a random height in the upper trunk
         y0 = trunk_h - 3 + rng.randint(0, 3)
-        length = 2 + rng.randint(0, 2)
-        x, y, z = 0, y0, 0
+        length = 3 + rng.randint(0, 2)  # longer branches for better visibility
+        # Branch origin shifts from trunk center based on direction
+        ox = 1 if bdx > 0 else 0
+        oz = 1 if bdz > 0 else 0
+        x, y, z = ox, y0, oz
         for _ in range(length):
             x += bdx
             z += bdz
