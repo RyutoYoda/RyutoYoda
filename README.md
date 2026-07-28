@@ -17,7 +17,6 @@ mainly focusing on analytics engineering and cloud-native architectures.
 <sub>🌳 Contribution Tree</sub>
 </td></tr></table>
 
----
 
 ## Activities
 
@@ -34,7 +33,7 @@ mainly focusing on analytics engineering and cloud-native architectures.
   
 </p>
 
----
+
 
 ## Tech Stack
 
